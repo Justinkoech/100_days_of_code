@@ -1,0 +1,35 @@
+from turtle import Turtle , Screen
+
+rex = Turtle()
+screen = Screen()
+pos = 0
+
+def forwards():
+    rex.forward(1)
+def backwards():
+    rex.backward(1)
+def counterclockwise():
+    global pos
+    pos += 10
+    rex.setheading(pos)
+
+def clockwise():
+    global pos
+    pos -= 10
+    rex.setheading(pos)
+
+def clear_drawing():
+    for i in range(10):
+        rex.undo()
+
+
+
+screen.listen()
+screen.onkeypress(forwards, "w")
+screen.onkeypress(backwards, "s")
+screen.onkeypress(counterclockwise, "a" )
+screen.onkeypress(clockwise,"d")
+screen.onkey(clear_drawing,"c")
+
+
+screen.exitonclick()
